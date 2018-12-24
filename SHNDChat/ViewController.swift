@@ -12,8 +12,6 @@ class ViewController: UITableViewController {
     
     fileprivate static let cellId = "id"
     
-    //2D array
-    
     let messages = [
         [
             Message(text:"Hey dude, whats up?", isIncoming:true, date: Date.dateFromCustomString(dateString: "12/22/2018")),
@@ -46,20 +44,33 @@ class ViewController: UITableViewController {
         return messages.count
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         if let firstMessageInSection = messages[section].first {
+            let label = DateHeaderLabel()
+            label.backgroundColor = UIColor(red: 255.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 0.90)
+            label.text = SHNDDateFormatter(builder: SimpleDateBuilder(dateString: "\(firstMessageInSection.date)")).create()
             
+            label.textColor = .white
+            label.textAlignment = .center
+            label.translatesAutoresizingMaskIntoConstraints = false // enable auto layout
+            label.font = UIFont.boldSystemFont(ofSize: 14)
             
-            let dateString = SHNDDateFormatter(builder: SimpleDateBuilder(dateString: "\(firstMessageInSection.date)")).create()
+            let containerView = UIView()
             
-            return dateString
+            containerView.addSubview(label)
+            label.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
+            label.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+            
+            return containerView
         }
-        
-        return "Section: \(Date())"
+        return nil
     }
     
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages[section].count
     }
