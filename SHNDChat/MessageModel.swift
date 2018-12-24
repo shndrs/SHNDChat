@@ -11,4 +11,5 @@ import Foundation
 public struct Message {
     let text:String
     let isIncoming:Bool
+    let date:Date
 }

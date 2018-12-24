@@ -34,7 +34,7 @@ class MessageCell: UITableViewCell {
 
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        self.message = Message(text: "", isIncoming: true)
+        self.message = Message(text: "", isIncoming: true, date: Date())
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         backgroundColor = .clear

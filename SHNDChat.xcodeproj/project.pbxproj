@@ -14,6 +14,7 @@
 		2FF83C9821D0BD9A002C309C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FF83C9621D0BD9A002C309C /* LaunchScreen.storyboard */; };
 		2FF83CA021D0C6B4002C309C /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF83C9F21D0C6B4002C309C /* MessageCell.swift */; };
 		2FF83CA221D0E18F002C309C /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF83CA121D0E18F002C309C /* MessageModel.swift */; };
+		2FF83CA421D0F544002C309C /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF83CA321D0F544002C309C /* Util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		2FF83C9921D0BD9A002C309C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FF83C9F21D0C6B4002C309C /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		2FF83CA121D0E18F002C309C /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		2FF83CA321D0F544002C309C /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				2FF83C9921D0BD9A002C309C /* Info.plist */,
 				2FF83C9F21D0C6B4002C309C /* MessageCell.swift */,
 				2FF83CA121D0E18F002C309C /* MessageModel.swift */,
+				2FF83CA321D0F544002C309C /* Util.swift */,
 			);
 			path = SHNDChat;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			files = (
 				2FF83C9021D0BD98002C309C /* ViewController.swift in Sources */,
 				2FF83C8E21D0BD98002C309C /* AppDelegate.swift in Sources */,
+				2FF83CA421D0F544002C309C /* Util.swift in Sources */,
 				2FF83CA021D0C6B4002C309C /* MessageCell.swift in Sources */,
 				2FF83CA221D0E18F002C309C /* MessageModel.swift in Sources */,
 			);
