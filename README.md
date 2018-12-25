@@ -4,7 +4,8 @@ hope you fellas enjoy it 😉😉
 
 ## Example
 
-![shndchat2](https://user-images.githubusercontent.com/34839080/50422998-ccf6f800-0864-11e9-80bf-9a3fa1775e80.png)
+![shndchat2](https://user-images.githubusercontent.com/34839080/50423013-fadc3c80-0864-11e9-93bd-919e316a20d1.png)
+
 
 ## Requirements
 Swift 4.0 or later
