@@ -16,28 +16,41 @@ class ViewController: ChatVCWithTableView {
     
     private let messages = [
         [
-            Message(text:"Hey dude, whats up?", isIncoming:true, date: Date.dateFromCustomString(dateString: "12/22/2018")),
+            Message(text:"Hey dude, whats up? 🙋‍♂", isIncoming:true, date: Date.dateFromCustomString(dateString: "12/22/2018")),
             Message(text:"Sahand maybe be beside the Rusty Cooley in his upcomming show", isIncoming:true, date: Date.dateFromCustomString(dateString: "12/22/2018"))
         ],
         [
-            Message(text:"i'm fine \nAre you serious?!", isIncoming:false, date: Date.dateFromCustomString(dateString: "12/23/2018")),
+            Message(text:"i'm fine \nAre you serious?! 😨😨", isIncoming:false, date: Date.dateFromCustomString(dateString: "12/23/2018")),
             Message(text:"yeps", isIncoming:true, date: Date.dateFromCustomString(dateString: "12/23/2018")),
-            Message(text:"And Michael Angelo Batio will be there for sure, is more than honor and pleasure to see such an amazing talent and hero in there", isIncoming:true, date: Date.dateFromCustomString(dateString: "12/23/2018"))
+            Message(text:"And Michael Angelo Batio will be there for sure, is more than honor and pleasure to see such an amazing talent and hero in there 😛", isIncoming:true, date: Date.dateFromCustomString(dateString: "12/23/2018"))
         ],
         [
             Message(text:"oh my God thats AWESOME, those guys are my heros", isIncoming:false, date: Date.dateFromCustomString(dateString: "12/24/2018")),
-            Message(text:"Make sure you'll be there ;-)", isIncoming:true, date: Date.dateFromCustomString(dateString: "12/24/2018")),
-            Message(text:"Dude!! I'll be there", isIncoming:false, date: Date.dateFromCustomString(dateString: "12/24/2018"))
+            Message(text:"Make sure you'll be there 😉", isIncoming:true, date: Date.dateFromCustomString(dateString: "12/24/2018")),
+            Message(text:"Dude!! I'll be there 😋", isIncoming:false, date: Date.dateFromCustomString(dateString: "12/24/2018")),
+            Message(text:"Alright see ya there then", isIncoming:false, date: Date.dateFromCustomString(dateString: "12/24/2018")),
+            Message(text:"Okey man Horns Up 🤘🏻🤘🏻", isIncoming:true, date: Date.dateFromCustomString(dateString: "12/24/2018"))
+        ],
+        [
+            Message(text:"Hey, see you @ 9??", isIncoming:false, date: Date.dateFromCustomString(dateString: "12/27/2018")),
+            Message(text:"Hi, yeah! see you there 👊🏻", isIncoming:true, date: Date.dateFromCustomString(dateString: "12/27/2018")),
+            Message(text:"AWESOME! 🤘🏻🤘🏻🤘🏻🤘🏻🤘🏻🤘🏻", isIncoming:false, date: Date.dateFromCustomString(dateString: "12/27/2018")),
+            Message(text:"😉😉", isIncoming:true, date: Date.dateFromCustomString(dateString: "12/27/2018"))
         ]
     ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "SHNDChat"
-        navigationController?.navigationBar.backgroundColor = UIColor.init(white: 0.65, alpha: 1)
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationSetUp()
         initTableView()
+    }
+    
+    private func navigationSetUp() {
+    
+        navigationItem.title = "SHNDChat"
+        navigationController?.navigationBar.backgroundColor = UIColor(red: 59.0/255.0, green: 68.0/255.0, blue: 75.0/255.0, alpha: 0.90)
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     @IBAction private func sendButtonPressed(_ sender: UIButton) {
@@ -64,7 +77,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
         if let firstMessageInSection = messages[section].first {
             let label = DateHeaderLabel()
-            label.backgroundColor = UIColor(red: 255.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 0.90)
+            label.backgroundColor = UIColor(red: 0.0/255.0, green: 127.0/255.0, blue: 255.0/255.0, alpha: 0.90)
+                //UIColor(red: 30.0/255.0, green: 77.0/255.0, blue: 43.0/255.0, alpha: 0.90)
             label.text = SHNDDateFormatter(builder: SimpleDateBuilder(dateString: "\(firstMessageInSection.date)")).create()
             
             label.textColor = .white
@@ -96,5 +110,49 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         cell.selectionStyle = .none
         cell.message = messages[indexPath.section][indexPath.row]
         return cell
+    }
+    
+    @available(iOS 11.0, *)
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        if !messages[indexPath.section][indexPath.row].isIncoming {
+            let reply = replyAction(at: indexPath)
+            let forward = forwardAction(at: indexPath)
+            return UISwipeActionsConfiguration(actions: [reply,forward])
+        }
+        return nil
+    }
+    @available(iOS 11.0, *)
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        if messages[indexPath.section][indexPath.row].isIncoming {
+            let reply = replyAction(at: indexPath)
+            let forward = forwardAction(at: indexPath)
+            return UISwipeActionsConfiguration(actions: [reply,forward])
+        }
+        return nil
+    }
+    @available(iOS 11.0, *)
+    fileprivate func replyAction(at indexPath:IndexPath) -> UIContextualAction {
+        
+        let action = UIContextualAction(style: .destructive, title: "") { (action, view, completion) in
+            
+            completion(true)
+        }
+        action.image = ProjectImages.replyIcon
+        action.accessibilityContainerType = UIAccessibilityContainerType.landmark
+        action.backgroundColor = .orange
+        return action
+    }
+    
+    @available(iOS 11.0, *)
+    fileprivate func forwardAction(at indexPath:IndexPath) -> UIContextualAction {
+        
+        let action = UIContextualAction(style: .destructive, title: "") { (action, view, completion) in
+            
+            completion(true)
+        }
+        action.image = ProjectImages.forwardIcon
+        action.backgroundColor = .gray
+        return action
     }
 }

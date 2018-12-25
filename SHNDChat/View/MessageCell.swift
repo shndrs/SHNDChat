@@ -8,8 +8,12 @@
 
 import UIKit
 
+public let arsenic = UIColor(red: 59.0/255.0, green: 68.0/255.0, blue: 75.0/255.0, alpha: 1)
+
 class MessageCell: UITableViewCell {
 
+    
+    
     private let messageLabel = UILabel()
     private let messageBackGroundView = UIView()
     
@@ -18,7 +22,7 @@ class MessageCell: UITableViewCell {
     
     public var message: Message {
         didSet {
-            messageBackGroundView.backgroundColor = message.isIncoming ? .darkGray : .white
+            messageBackGroundView.backgroundColor = message.isIncoming ? arsenic : .white
             messageLabel.textColor = message.isIncoming ? .white : .black
             messageLabel.text = message.text
             

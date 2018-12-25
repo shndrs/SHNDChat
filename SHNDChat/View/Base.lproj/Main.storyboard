@@ -20,7 +20,8 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MBe-K9-nRK">
                                 <rect key="frame" x="0.0" y="64" width="375" height="542"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQX-wO-Vw2">
                                 <rect key="frame" x="327" y="616.5" width="40" height="40"/>
@@ -28,13 +29,13 @@
                                     <constraint firstAttribute="width" constant="40" id="VQf-HJ-M4u"/>
                                     <constraint firstAttribute="width" secondItem="aQX-wO-Vw2" secondAttribute="height" multiplier="1:1" id="ghl-JN-vF7"/>
                                 </constraints>
-                                <state key="normal" image="right-arrow(2)"/>
+                                <state key="normal" image="forward"/>
                                 <connections>
                                     <action selector="sendButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tnL-vR-Sc2"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zqZ-aL-szY">
-                                <rect key="frame" x="8" y="614" width="311" height="45"/>
+                                <rect key="frame" x="48" y="614" width="271" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="e3y-99-7E4"/>
@@ -42,18 +43,31 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cre-cl-fqf">
+                                <rect key="frame" x="8" y="620.5" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="cre-cl-fqf" secondAttribute="height" multiplier="1:1" id="K3u-Dq-Clf"/>
+                                    <constraint firstAttribute="width" constant="32" id="zZK-mD-em7"/>
+                                </constraints>
+                                <state key="normal" image="microphone"/>
+                                <connections>
+                                    <action selector="sendButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tjR-if-2SV"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="aQX-wO-Vw2" firstAttribute="leading" secondItem="zqZ-aL-szY" secondAttribute="trailing" constant="8" id="0FW-qL-MlR"/>
                             <constraint firstItem="MBe-K9-nRK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8ZZ-8h-PCv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zqZ-aL-szY" secondAttribute="bottom" constant="8" id="8nP-eE-2N4"/>
                             <constraint firstItem="zqZ-aL-szY" firstAttribute="top" secondItem="MBe-K9-nRK" secondAttribute="bottom" constant="8" id="HmY-aW-bCC"/>
+                            <constraint firstItem="cre-cl-fqf" firstAttribute="centerY" secondItem="zqZ-aL-szY" secondAttribute="centerY" id="I7L-2c-nP2"/>
+                            <constraint firstItem="zqZ-aL-szY" firstAttribute="leading" secondItem="cre-cl-fqf" secondAttribute="trailing" constant="8" id="PHn-b7-e7Z"/>
                             <constraint firstItem="MBe-K9-nRK" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="WZj-kr-FvD"/>
                             <constraint firstItem="MBe-K9-nRK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="YjI-2V-96O"/>
-                            <constraint firstItem="zqZ-aL-szY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="dG1-rS-ECA"/>
                             <constraint firstItem="aQX-wO-Vw2" firstAttribute="width" secondItem="aQX-wO-Vw2" secondAttribute="height" multiplier="1:1" id="kpb-Rw-aQB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aQX-wO-Vw2" secondAttribute="trailing" constant="8" id="pRN-1h-N3m"/>
+                            <constraint firstItem="cre-cl-fqf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="sM4-T6-lhd"/>
                             <constraint firstItem="aQX-wO-Vw2" firstAttribute="centerY" secondItem="zqZ-aL-szY" secondAttribute="centerY" id="u2b-7f-If4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -89,6 +103,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="right-arrow(2)" width="128" height="128"/>
+        <image name="forward" width="30" height="30"/>
+        <image name="microphone" width="64" height="64"/>
     </resources>
 </document>
