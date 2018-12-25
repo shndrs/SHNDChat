@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F8D542A21D2044900099E3A /* ChatVCWithTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8D542921D2044900099E3A /* ChatVCWithTableView.swift */; };
+		2F8D542C21D21A3100099E3A /* KeyboardUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8D542B21D21A3100099E3A /* KeyboardUtil.swift */; };
 		2FF83C8E21D0BD98002C309C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF83C8D21D0BD98002C309C /* AppDelegate.swift */; };
 		2FF83C9021D0BD98002C309C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF83C8F21D0BD98002C309C /* ViewController.swift */; };
 		2FF83C9321D0BD98002C309C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FF83C9121D0BD98002C309C /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F8D542921D2044900099E3A /* ChatVCWithTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVCWithTableView.swift; sourceTree = "<group>"; };
+		2F8D542B21D21A3100099E3A /* KeyboardUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardUtil.swift; sourceTree = "<group>"; };
 		2FF83C8A21D0BD98002C309C /* SHNDChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SHNDChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FF83C8D21D0BD98002C309C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FF83C8F21D0BD98002C309C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				2FF83C8C21D0BD98002C309C /* SHNDChat */,
+				2FF83C9921D0BD9A002C309C /* Info.plist */,
 				2FF83C8B21D0BD98002C309C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -62,18 +67,59 @@
 		2FF83C8C21D0BD98002C309C /* SHNDChat */ = {
 			isa = PBXGroup;
 			children = (
+				2FF83CAB21D11F13002C309C /* Resources */,
+				2FF83CAA21D11F02002C309C /* Util */,
+				2FF83CA921D11EF1002C309C /* Model */,
+				2FF83CA821D11ED1002C309C /* View */,
+				2FF83CA721D11EC3002C309C /* Controller */,
 				2FF83C8D21D0BD98002C309C /* AppDelegate.swift */,
-				2FF83C8F21D0BD98002C309C /* ViewController.swift */,
-				2FF83C9121D0BD98002C309C /* Main.storyboard */,
-				2FF83C9421D0BD9A002C309C /* Assets.xcassets */,
-				2FF83C9621D0BD9A002C309C /* LaunchScreen.storyboard */,
-				2FF83C9921D0BD9A002C309C /* Info.plist */,
-				2FF83C9F21D0C6B4002C309C /* MessageCell.swift */,
-				2FF83CA121D0E18F002C309C /* MessageModel.swift */,
-				2FF83CA321D0F544002C309C /* Util.swift */,
-				2FF83CA521D1116E002C309C /* UILabelMaterial.swift */,
 			);
 			path = SHNDChat;
+			sourceTree = "<group>";
+		};
+		2FF83CA721D11EC3002C309C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2FF83C8F21D0BD98002C309C /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2FF83CA821D11ED1002C309C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2FF83C9121D0BD98002C309C /* Main.storyboard */,
+				2FF83C9621D0BD9A002C309C /* LaunchScreen.storyboard */,
+				2FF83C9F21D0C6B4002C309C /* MessageCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2FF83CA921D11EF1002C309C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2FF83CA121D0E18F002C309C /* MessageModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2FF83CAA21D11F02002C309C /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				2FF83CA321D0F544002C309C /* Util.swift */,
+				2FF83CA521D1116E002C309C /* UILabelMaterial.swift */,
+				2F8D542921D2044900099E3A /* ChatVCWithTableView.swift */,
+				2F8D542B21D21A3100099E3A /* KeyboardUtil.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		2FF83CAB21D11F13002C309C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2FF83C9421D0BD9A002C309C /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +196,8 @@
 				2FF83C9021D0BD98002C309C /* ViewController.swift in Sources */,
 				2FF83C8E21D0BD98002C309C /* AppDelegate.swift in Sources */,
 				2FF83CA421D0F544002C309C /* Util.swift in Sources */,
+				2F8D542A21D2044900099E3A /* ChatVCWithTableView.swift in Sources */,
+				2F8D542C21D21A3100099E3A /* KeyboardUtil.swift in Sources */,
 				2FF83CA021D0C6B4002C309C /* MessageCell.swift in Sources */,
 				2FF83CA221D0E18F002C309C /* MessageModel.swift in Sources */,
 				2FF83CA621D1116E002C309C /* UILabelMaterial.swift in Sources */,

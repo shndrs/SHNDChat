@@ -18,9 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         //bypass the storyboard
-        window = UIWindow()
-        window?.makeKeyAndVisible()
-        window?.rootViewController = UINavigationController(rootViewController: ViewController())
+//        window = UIWindow()
+//        window?.makeKeyAndVisible()
+//        window?.rootViewController = UINavigationController(rootViewController: ViewController())
         return true
     }
 

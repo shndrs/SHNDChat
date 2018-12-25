@@ -8,11 +8,13 @@
 
 import UIKit
 
-class ViewController: UITableViewController {
+class ViewController: ChatVCWithTableView {
     
     fileprivate static let cellId = "id"
     
-    let messages = [
+    @IBOutlet fileprivate weak var tableView: UITableView!
+    
+    private let messages = [
         [
             Message(text:"Hey dude, whats up?", isIncoming:true, date: Date.dateFromCustomString(dateString: "12/22/2018")),
             Message(text:"Sahand maybe be beside the Rusty Cooley in his upcomming show", isIncoming:true, date: Date.dateFromCustomString(dateString: "12/22/2018"))
@@ -33,18 +35,32 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         
         navigationItem.title = "SHNDChat"
+        navigationController?.navigationBar.backgroundColor = UIColor.init(white: 0.65, alpha: 1)
         navigationController?.navigationBar.prefersLargeTitles = true
-        tableView.separatorStyle = .none
-        tableView.backgroundColor = UIColor(white: 0.95, alpha: 1)
-        tableView.register(MessageCell.self, forCellReuseIdentifier: ViewController.cellId)
-        
+        initTableView()
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    @IBAction private func sendButtonPressed(_ sender: UIButton) {
+        messageTextView.text = ""
+    }
+}
+
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    fileprivate func initTableView() {
+        tableView.separatorStyle = .none
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        tableView.register(MessageCell.self, forCellReuseIdentifier: ViewController.cellId)
+        tableView.reloadData()
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return messages.count
     }
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         if let firstMessageInSection = messages[section].first {
             let label = DateHeaderLabel()
@@ -67,20 +83,18 @@ class ViewController: UITableViewController {
         return nil
     }
     
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages[section].count
     }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ViewController.cellId, for: indexPath) as? MessageCell else { return UITableViewCell() }
         cell.selectionStyle = .none
-        
         cell.message = messages[indexPath.section][indexPath.row]
         return cell
     }
 }
-
