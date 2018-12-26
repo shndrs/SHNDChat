@@ -8,7 +8,7 @@ hope you fellas enjoy it 😉😉
 
 
 ## Requirements
-Swift 4.0 or later
+Swift 4.2.1 or later
 
 ## Author
 sahandraeisi1994@gmail.com, sahandraeisi@yahoo.com
