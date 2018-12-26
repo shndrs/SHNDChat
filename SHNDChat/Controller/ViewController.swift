@@ -41,14 +41,21 @@ class ViewController: ChatVCWithTableView {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationSetUp()
         initTableView()
+        scrollToLastCell(animated: false)
+    }
+    
+    private func scrollToLastCell(animated : Bool) {
+        DispatchQueue.main.async {
+            let lastSectionIndex = self.tableView.numberOfSections - 1
+            let lastRowIndex = self.tableView.numberOfRows(inSection: lastSectionIndex) - 1
+            self.tableView.scrollToRow(at: IndexPath(row: lastRowIndex, section: lastSectionIndex), at: .bottom, animated: animated)
+        }
     }
     
     private func navigationSetUp() {
-    
-        navigationItem.title = "SHNDChat"
+        navigationItem.title = "SHND Chat"
         navigationController?.navigationBar.backgroundColor = UIColor(red: 59.0/255.0, green: 68.0/255.0, blue: 75.0/255.0, alpha: 0.90)
         navigationController?.navigationBar.prefersLargeTitles = true
     }
@@ -78,7 +85,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         if let firstMessageInSection = messages[section].first {
             let label = DateHeaderLabel()
             label.backgroundColor = UIColor(red: 0.0/255.0, green: 127.0/255.0, blue: 255.0/255.0, alpha: 0.90)
-                //UIColor(red: 30.0/255.0, green: 77.0/255.0, blue: 43.0/255.0, alpha: 0.90)
+            
             label.text = SHNDDateFormatter(builder: SimpleDateBuilder(dateString: "\(firstMessageInSection.date)")).create()
             
             label.textColor = .white

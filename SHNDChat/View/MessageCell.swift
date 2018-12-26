@@ -12,8 +12,6 @@ public let arsenic = UIColor(red: 59.0/255.0, green: 68.0/255.0, blue: 75.0/255.
 
 class MessageCell: UITableViewCell {
 
-    
-    
     private let messageLabel = UILabel()
     private let messageBackGroundView = UIView()
     
@@ -35,7 +33,6 @@ class MessageCell: UITableViewCell {
             }
         }
     }
-
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         self.message = Message(text: "", isIncoming: true, date: Date())
@@ -74,5 +71,4 @@ class MessageCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }

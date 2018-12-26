@@ -74,7 +74,8 @@ open class SHNDDateFormatter {
         self.outputDateFormat = builder.outputDateFormat
     }
     
-    @discardableResult public func create() -> String {
+    @discardableResult
+    public func create() -> String {
         let df = DateFormatter()
         df.dateFormat = self.inputDateFormat.getUIFormat()
         

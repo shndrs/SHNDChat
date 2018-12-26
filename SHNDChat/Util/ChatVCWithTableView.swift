@@ -10,8 +10,6 @@ import UIKit
 
 class ChatVCWithTableView: UIViewController {
     
-    fileprivate var lastContentOffset:CGFloat = 0
-    
     @IBOutlet weak var messageTextView:UITextView!
     @IBOutlet weak var messageTextViewHeight:NSLayoutConstraint!
     
@@ -54,23 +52,19 @@ class ChatVCWithTableView: UIViewController {
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        
         updateConstrants(animationPerformedOnce: true)
     }
     
     func updateConstrants(animationPerformedOnce:Bool) {
         
         if messageTextView.contentSize.height < 150 {
-            
             if animationPerformedOnce {
-                
                 messageTextView.layer.removeAllAnimations()
                 messageTextViewHeight.constant = messageTextView.contentSize.height
                 UIView.animate(withDuration: 0.3) {
                     self.view.updateConstraints()
                     self.view.layoutIfNeeded()
                 }
-                
             } else {
                 messageTextViewHeight.constant = messageTextView.contentSize.height
                 view.updateConstraints()

@@ -47,7 +47,10 @@ public extension UIViewController {
     
     // call this function inside your viewDidLoad() and enjoy it
     
-    public func SHNDNavigationBarGradient(leftColor:UIColor , rightColor:UIColor, tintColor:UIColor? = .black, isHorizontal:Bool? = true) {
+    public func SHNDNavigationBarGradient(leftColor:UIColor ,
+                                          rightColor:UIColor,
+                                          tintColor:UIColor? = .black,
+                                          isHorizontal:Bool? = true) {
         
         navigationController?.navigationBar.tintColor = tintColor
         navigationController?.navigationBar.applyNavigationGradient([leftColor, rightColor],isHorizontal: isHorizontal!)
