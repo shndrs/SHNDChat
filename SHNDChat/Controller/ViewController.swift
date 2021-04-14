@@ -55,7 +55,7 @@ class ViewController: ChatVCWithTableView {
     }
     
     private func navigationSetUp() {
-        navigationItem.title = "SHND Chat"
+        navigationItem.title = "David Smith"
         navigationController?.navigationBar.backgroundColor = UIColor(red: 59.0/255.0, green: 68.0/255.0, blue: 75.0/255.0, alpha: 0.90)
         navigationController?.navigationBar.prefersLargeTitles = true
     }
